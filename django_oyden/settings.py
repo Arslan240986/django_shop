@@ -145,14 +145,18 @@ LOCALE_PATHS = (
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+    '/Users/arslan/Desktop/django_shoping/django_shop/static/',
+]
+#
+# STATIC_ROOT = (BASE_DIR/'/static')
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-# this is cart config
-CART_SESSION_ID = 'cart'
 
 # this is cart config
 CART_SESSION_ID = 'cart'

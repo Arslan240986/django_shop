@@ -11,8 +11,7 @@
     <title>{% block title %}Oyden.com{% endblock %}</title>
     <link rel="icon" type="image/png" href="/static/img/oyden_logo/black_red2.png" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
@@ -24,8 +23,7 @@
                 {% if cart|length > 0 %}
 
                 <div class="cart_title flo">
-                    <a href="{% url 'cart:cart_detail' %}" class="btn btn_for_card"
-                       aria-label="View 3 items in your shopping cart">
+                    <a href="{% url 'cart:cart_detail' %}" class="btn btn_for_card" aria-label="View 3 items in your shopping cart">
                         <i class="fa fa-shopping-cart" aria-hidden="true">
                             {{ total_items }}
                             <span class="unit_text">
@@ -41,8 +39,7 @@
                 </div>
                 {% else %}
                 <div class="cart_title flo">
-                    <a href="{% url 'cart:cart_detail' %}" class="btn btn-primary"
-                       aria-label="View 3 items in your shopping cart">
+                    <a href="{% url 'cart:cart_detail' %}" class="btn btn-primary" aria-label="View 3 items in your shopping cart">
                         <i class="fa fa-shopping-cart" aria-hidden="true">
                             <span class="cart_empty">Корзина пуста</span>
                         </i>
@@ -60,13 +57,13 @@
                         {% get_available_languages as LANGUAGES %}
                         {% get_language_info_list for LANGUAGES as languages %}
                         {% for language in languages %}
-                        <option class="languages_option"  {% if language.code == LANGUAGE_CODE %}selected{% endif %} value="{{ language.code }}">
+                        <option class="languages_option"  {% if language.code == LANGUAGE_CODE %}selected {% endif %} value="{{ language.code }}">
                             {{ language.code }}
                         </option>
                         {% endfor %}
                     </select>
                     <input class="button_language trans_ru" type="submit" value="Перейти">
-                    <input class="button_language trans_tr" type="submit" value="Terjime">
+                    <input style="display: none;" class="button_language trans_tr" type="submit" value="Terjime">
                 </form>
             </div>
         </div>
@@ -85,8 +82,9 @@
                 </a>
                 {% for page in flatpages %}
 
-                <a class="nav-item nav-link content_side_nav {% if page.url == request.path %} active {% endif %}"
-                   href="{{ page.url }}">{{page.title}}</a>
+                <a class="nav-item nav-link content_side_nav {% if page.url == request.path %} active {% endif %}" href="{{ page.url }}">
+                    {{page.title}}
+                </a>
                 {% endfor %}
             </div>
         </nav>
@@ -102,15 +100,10 @@
     {% include "include/footer.html" %}
     <!--end content side-->
 
-
+</div>
     <script src="https://kit.fontawesome.com/f60ff1095d.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-            crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'js/base.js' %}"></script>
-
 </body>
 </html>

@@ -1,5 +1,4 @@
 from django.contrib.admin.views.decorators import staff_member_required
-from django.core import serializers
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from .models import OrderItem, Order
@@ -21,9 +20,8 @@ def order_create(request):
                                          quantity=item['quantity'])
             #Ochishayem korzinu
             cart.clear()
-
             # Zapusk asinhronnoy zadachi.
-            order_created.delay(order.id,)
+            order_created.delay(order.id)
             # order_created.delay(order.id)
             return render(request,
                           'order/created.html',
