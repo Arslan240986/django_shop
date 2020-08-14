@@ -80,12 +80,12 @@
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
+    justify-content: center;
 }
 .card_colm{
     flex: 24%;
     align-self: stretch;
-    max-width: 200px;
+    max-width: 250px;
     margin: 0 1% 1% 0;
 
 }
@@ -419,6 +419,11 @@ body{
     border: 1px solid grey;
     border-radius: 10px;
 }
+.counter_li:before{
+  content: counter(item) ') ' /* Добавляем к числам скобку */
+  counter-increment: item; /* Задаём имя счетчика */
+}
+
 .img_delivary_car_container{
     margin-right: 10px;
 }

@@ -10,14 +10,14 @@
     <div class="order_title_h3">
         <h3 class="titl_of_order_cretae">
             <span class="trans_ru">Офориление заказа</span>
-            <span class="trans_tr">Sargydynyz resmilesdirin</span>
+            <span style="display: none;" class="trans_tr">Sargydyňyz resmileşdiriň</span>
 
         </h3>
     </div>
     <div class="row">
         <div class="orders_list">
             <span class="trans_ru">Перечень заказов</span>
-            <span class="trans_tr">Sargydyn sanawy</span>
+            <span style="display: none;" class="trans_tr">Sargydyn sanawy</span>
 
         </div>
     </div>
@@ -25,12 +25,16 @@
         <div class="col-12 order_info">
             <ol>
                 {% for item in cart %}
-                <li>
+                <li class="counter_li">
                     {{ item.quantity }}
                         <span class="trans_ru">шт.</span>
-                        <span class="trans_tr">sany.</span>
+                        <span style="display:none;" class="trans_tr">sany.</span>
                     {{ item.product.name }}
-                    <span>${{ item.total_price }}</span>
+                    <span>{{ item.total_price }}</span>
+                    <span class="trans_ru">Мaнaт</span>
+                    <span style="display:none;" class="trans_tr">Manat,</span>
+
+
                 </li>
                 {% endfor %}
             </ol>
@@ -39,7 +43,7 @@
     <div class="col-12 total_price order_info">
         <p>
             <span class="trans_ru">Итого: </span>
-            <span class="trans_tr">Jemi: </span>
+            <span style="display:none;" class="trans_tr">Jemi: </span>
             {{ cart.get_total_price }}
             <span class="trans_ru">Мнт</span>
             <span class="trans_tr">Mnt</span>
@@ -59,15 +63,15 @@
         </div>
         <span class="delivary_create_text">
             <span class="trans_ru">Доставка курером</span>
-            <span class="trans_tr">Kuryer eltip beryar</span>
+            <span class="trans_tr">Kurýer eltip beryär</span>
 
           </span>
         <small class="delivery_span">
             <span class="trans_ru">Стоимость доставки 5мнт по городу</span>
-            <span class="trans_tr">Eltip bermek hyzmatynyn nyrhy "5mnt" shaher ichinde</span>
+            <span class="trans_tr">Eltip bermek hyzmatynyn nyrhy "5mnt" şäher içinde</span>
              <br>
             <span class="trans_ru">Сумма при выше <span class="red">150мнт.</span> доставка бесплатно.</span>
-            <span class="trans_tr"><span class="red">"150mnt."</span> gechende eltip bermek hyzmaty mugt bolyar</span>
+            <span class="trans_tr"><span class="red">"150mnt."</span> geçende eltip bermek hyzmaty mugt bolýar</span>
 
         </small>
     </div>
@@ -75,7 +79,7 @@
 <div class="row">
     <div class="orders_list title_of_forms">
         <span class="trans_ru">Информация для доставки заказа</span>
-        <span class="trans_tr">Sovdany eltip bermek uchin maglumat</span>
+        <span class="trans_tr">Söwdany eltip bermek uçin maglumat</span>
     </div>
 </div>
 <div class="container_for_forms">
@@ -103,7 +107,7 @@
         </div>
         <button type="submit" class="btn btn-primary">
             <span class="trans_ru">Оформит заказ</span>
-            <span class="trans_tr">Harydy resmileshdir</span>
+            <span class="trans_tr">Harydy resmileşdir</span>
         </button>
     </form>
 </div>

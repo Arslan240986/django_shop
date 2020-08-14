@@ -12,26 +12,26 @@
                 <a href="#" onclick="window.print();">
                     <i class="fa fa-print" aria-hidden="false">
                         <span class="trans_ru">Распечатать</span>
-                        <span class="trans_tr">Chap et</span>
+                        <span style="display: none;" class="trans_tr">Çap et</span>
                     </i>
                 </a>
             </div>
         </div>
         <h2 style="margin-bottom: 40px;">
             <span class="trans_ru">Моя корзине</span>
-            <span class="trans_tr">Menin sebetim</span>
+            <span style="display: none;" class="trans_tr">Meniň sebetim</span>
         </h2>
         <div class="column">
             <span class="in_cart_text">
                 <span class="trans_ru">В корзине</span>
-                <span class="trans_tr">Sebetde</span>
+                <span style="display: none;" class="trans_tr">Sebetde</span>
             </span>
 
             <div class="btn clear_cart">
                 <a href="{% url 'cart:cart_clear' %}">
                     <i class="fa fa-remove fa-1x">
                         <span class="clear_icon trans_ru"> Очистить </span>
-                        <span class="clear_icon trans_tr">Arassala</span>
+                        <span style="display: none;" class="clear_icon trans_tr">Arassala</span>
                     </i>
                 </a>
             </div>
@@ -41,27 +41,27 @@
             <div class="row header_tr">
                 <div class="tb_item_image text-center">
                     <span class="trans_ru">Фото</span>
-                    <span class="trans_tr">Suraty</span>
+                    <span style="display: none;" class="trans_tr">Suraty</span>
                 </div>
                 <div class="tb_item_name text-center">
                     <span class="trans_ru">Наимен</span>
-                    <span class="trans_tr">Ady</span>
+                    <span style="display: none;" class="trans_tr">Ady</span>
                 </div>
                 <div class="tb_item_quantity text-center">
                     <span class="trans_ru">Количество</span>
-                    <span class="trans_tr">Mukdary</span>
+                    <span style="display: none;" class="trans_tr">Mukdary</span>
                 </div>
                 <div class="tb_item_price text-center">
                     <span class="trans_ru">Цена</span>
-                    <span class="trans_tr">Bahasy</span>
+                    <span style="display: none;" class="trans_tr">Bahasy</span>
                 </div>
                 <div class="tb_item_sum text-center">
                     <span class="trans_ru">Общая.Ц</span>
-                    <span class="trans_tr">Umumy.B</span>
+                    <span style="display: none;" class="trans_tr">Umumy.B</span>
                 </div>
                 <div class="tb_item_remove_btn text-center">
                     <span class="trans_ru">Удалить</span>
-                    <span class="trans_tr">Ayyrmak</span>
+                    <span style="display: none;" class="trans_tr">Aýyrmak</span>
 
                 </div>
             </div>
@@ -73,7 +73,7 @@
             <div class="row body_tr">
                 <div class="text-center tb_item_image tb_item_image_container">
                     <img class="tb_item_image_self" src="{% if product.image %}{{ product.image.url }}
-                        {% else %}{% static 'img/avatar.png' %}{% endif %}">
+                        {% else %}{% static 'img/no-image.jpeg' %}{% endif %}">
                 </div>
                 <div class="text-center tb_item_name">{{ product.name }}</div>
 
@@ -82,17 +82,18 @@
                         {% csrf_token %}
                         {{ item.update_quantity_form.quantity }}
                         {{ item.update_quantity_form.update }}
-                        <input type="submit" value="Обновить">
+                        <input class="trans_ru" type="submit" value="Изменить">
+                        <input style="display: none;" class="trans_tr" type="submit" value="Üytget">
                     </form>
                 </div>
 
                 <div class="text-center num tb_item_price">{{ item.price }}
                     <span class="trans_ru">мнт.</span>
-                    <span class="trans_tr">mnt.</span>
+                    <span style="display: none;" class="trans_tr">mnt.</span>
                 </div>
                 <div class="text-center num tb_item_sum">{{ item.total_price }}
                     <span class="trans_ru">мнт.</span>
-                    <span class="trans_tr">mnt.</span>
+                    <span style="display: none;" class="trans_tr">mnt.</span>
                 </div>
 
                 <div class="text-center tb_item_remove_btn">
@@ -109,10 +110,10 @@
             <div class="row footer_tr">
                 <div class="tb_item_total_price">
                     <span class="trans_ru">Итого:</span>
-                    <span class="trans_tr">Jemi: </span>
+                    <span style="display: none;" class="trans_tr">Jemi: </span>
                     <span class="tb_item_cart_total_price">{{ cart.get_total_price }}
                         <span class="trans_ru">мнт.</span>
-                    <span class="trans_tr">mnt.</span>
+                    <span style="display: none;" class="trans_tr">mnt.</span>
                     </span>
                     </td>
                 </div>
@@ -121,7 +122,7 @@
             <div class="row body_tr">
                 <p class="empty_cart_text">
                     <span class="trans_ru">Ваша корзинка пуста:</span>
-                    <span class="trans_tr">Sizin sebetiniz bosh</span>
+                    <span style="display: none;" class="trans_tr">Siziň sebetiniz boş</span>
 
                 </p>
             </div>
@@ -129,16 +130,16 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 btn contionue_shoping_btn">
                     <a href="{% url 'shop:product_list' %}">
-                        <span class="trans_ru">Продолжть покупку</span>
-                        <span class="trans_tr">Sowdany dowam et</span>
+                        <span class="trans_ru">Продолжить покупку</span>
+                        <span style="display: none;" class="trans_tr">Söwdany dowam et</span>
 
                     </a>
                 </div>
                 {% if cart %}
                 <div class=" col-sm-12 col-md-6 btn end_shoping_btn">
                     <a href="{% url 'orders:order_create' %}">
-                        <span class="trans_ru">Офориление заказа</span>
-                        <span class="trans_tr">Sargydynyz resmilesdirin</span>
+                        <span class="trans_ru">Оформление заказа</span>
+                        <span style="display: none;" class="trans_tr">Sargydyňyz reşmilesdiriň</span>
                     </a>
                 </div>
                 {% endif %}

@@ -7,27 +7,28 @@
 <div class="container card_container">
     <h4>< <a href="{{ product.category.get_absolute_url }}">
         <span class="trans_ru">Назад в :</span>
-        <span class="trans_tr">Yza :</span>
+        <span style="display: none;" class="trans_tr">Yza gec:</span>
         {{product.category }}
     </a></h4>
 
     <div class="product_detail_card">
         <div class="product_img_container">
-            <img src="{% if product.image %}{{ product.image.url }}{% else %} {% static 'img/no_image.png' %}{% endif %}">
+            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no-image.jpeg' %} {% endif %}">
         </div>
 
         <div class="product_body_container">
             <h3>{{ product.name }}</h3>
             <p class="price">{{ product.price }}
                 <small class="trans_ru">мнт</small>
-                <small class="trans_tr">mnt</small>
+                <small style="display: none;" class="trans_tr">mnt</small>
+                <span>{{ product.unit }}</span>
             </p>
             <p>{{ product.description }}</p>
             <form action="{% url 'cart:cart_add' product.id %}" method="post">
                 {% csrf_token %}
                 {{ cart_product_form }}<br><br>
                 <input class="btn btn-danger trans_ru" type="submit" value="Добавить в карту">
-                <input class="btn btn-danger trans_tr" type="submit" value="Sebede gosh">
+                <input style="display: none;" class="btn btn-danger trans_tr" type="submit" value="Sebede gosh">
             </form>
         </div>
     </div>

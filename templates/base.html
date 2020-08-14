@@ -28,11 +28,11 @@
                             {{ total_items }}
                             <span class="unit_text">
                                 <small class="trans_ru">{% trans "шт." %}</small>
-                                <small class="trans_tr">sany.</small>
+                                <small style="display: none;" class="trans_tr">sany.</small>
                             </span>
                             <span class="cart_btn_price">{{ cart.get_total_price }}
                                 <small class="trans_ru">Мнт.</small>
-                                <small class="trans_tr">Mnt.</small>
+                                <small style="display: none;" class="trans_tr">Mnt.</small>
                             </span>
                         </i>
                     </a>
@@ -78,7 +78,7 @@
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link content_side_nav home_navbar_link{% if request.path == '/' %} active {% endif %}" href="/">
                     <span class="trans_ru">Главная</span>
-                    <span class="trans_tr">Baş sahypa</span>
+                    <span style="display: none;" class="trans_tr">Baş sahypa</span>
                 </a>
                 {% for page in flatpages %}
 
