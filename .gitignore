@@ -1,0 +1,11 @@
+/venv/
+
+.idea
+.idea/.gitignore
+.idea/codeStyles/
+.idea/dbnavigator.xml
+.idea/django_shop.iml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+
