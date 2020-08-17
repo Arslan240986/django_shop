@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic.base import TemplateView
 
 
 urlpatterns = [
@@ -26,6 +27,9 @@ urlpatterns = [
     path('orders/', include('orders.urls')),
     path('', include('shop.urls')),
     path('i18n/', include('django.conf.urls.i18n')),
+    path("robots.txt",
+         TemplateView.as_view(template_name='robots.txt',
+                                            content_type="text/plain")),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += i18n_patterns(
     path('cart/', include('cart.urls')),

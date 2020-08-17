@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /about/
+Disallow: /contacs/
+Disallow: /delivary/
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /orders/
